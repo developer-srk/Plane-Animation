@@ -1,0 +1,56 @@
+/* style.css */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(to top, #87ceeb 0%, #b0e0ff 100%); /* Soft sky gradient */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body > div {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+img {
+  position: absolute;
+  width: 180px; /* Plane size */
+  top: -200px; /* Start above view */
+  right: -200px; /* Start off-screen right */
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.2)); /* subtle shadow */
+  animation: planeLanding 6s forwards cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Keyframes for smooth and natural plane landing */
+@keyframes planeLanding {
+  0% {
+    top: -200px;
+    right: -200px;
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    top: 40%;
+    right: 35%;
+    transform: rotate(15deg) scale(1.05);
+    opacity: 1;
+  }
+  70% {
+    top: 70%;
+    right: 20%;
+    transform: rotate(5deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 180px);
+    right: 10%;
+    transform: rotate(0deg) scale(0.95);
+    opacity: 1;
+  }
+}
